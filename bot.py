@@ -13,8 +13,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 # ================= НАСТРОЙКИ =================
 
-TOKEN = "ТВОЙ_BOT_TOKEN"
-SPREADSHEET_ID = "ТВОЙ_GOOGLE_SHEET_ID"
+TOKEN = "8010848066:AAE4lysx6-eZxbQA-KCbhi6AWSc_0ydWsq0"
+SPREADSHEET_ID = "1hNXRVjX0dfETIf3O9jXWmmRWMQOV3w7SY-Ye_zE_rBc"
 CREDS_FILE = "creds.json"
 DB_FILE = "volunteers.db"
 
