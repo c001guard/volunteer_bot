@@ -1,17 +1,19 @@
 FROM python:3.11-slim
 
-# чтобы логи сразу писались в stdout
-ENV PYTHONUNBUFFERED=1
-
 WORKDIR /app
 
-# копируем зависимости
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt .
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# копируем код и ключ
-COPY bot.py .
-COPY creds.json .
+COPY . .
 
-# команда запуска
-CMD ["python", "bot.py"]
+ENV PYTHONUNBUFFERED=1
+
+CMD ["python", "-m", "bot.main"]
