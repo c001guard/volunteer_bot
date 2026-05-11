@@ -1,0 +1,20 @@
+services:
+  bot:
+    build: .
+    container_name: volunteer_bot
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./creds.json:/app/creds.json:ro
+
+    environment:
+      TZ: Asia/Tashkent
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
